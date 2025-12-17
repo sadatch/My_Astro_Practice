@@ -1,5 +1,14 @@
 ---
+const pageTitle = "私について";
 
+const identity = {
+	firstName: "Kohei",
+	country: "Japan",
+	occupation: "Student",
+	hobbies: ["Piano", "Programming", "Traveling"],
+};
+
+const skills = ["HTML", "CSS", "Javascript", "Astro", "Python", "C", "Flet", "Flask", "Server"];
 ---
 
 <html lang="en">
@@ -8,16 +17,36 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href = "/">ホーム</a>
 		<a href = "/blog/">ブログ</a>
         
-        <h1>私について</h1>
+        <h1>{pageTitle}</h1>
         <h2>... そして私の新しいAstroサイトについて！</h2>
         
         <p>私はAstroの入門チュートリアルを進めています。これは私のウェブサイトの2番目のページで、自分で作った初めてのページです！</p>
+		<h3>私について</h3>
+		<ul>
+			<li>名前: {identity.firstName}</li>
+			<li>国: {identity.country}</li>
+			<li>職業: {identity.occupation}</li>
+			<li>趣味:
+				<ul>
+					{identity.hobbies.map((hobby) => (
+						<li>{hobby}</li>
+					))}
+				</ul>
+			</li>
+		</ul>
+		<h3>私のスキルセット</h3>
+		<ul>
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+		<h3>今後について</h3>
+		<p>私は今後、より多くの技術を学び、自分のスキルを高めていきたいと考えています。特に、Astroの機能を深く理解し、より魅力的なウェブサイトを作成できるようになりたいです。</p>
+
 
         <p>このサイトはチュートリアルを進めるにつれて更新されていきます。定期的にチェックして、私の旅の様子を見に来てください！</p>
 	</body>
